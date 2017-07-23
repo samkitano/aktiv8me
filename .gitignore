@@ -1,0 +1,6 @@
+/node_modules
+/BASE
+/.idea
+/.vagrant
+yarn-error.log
+.env

@@ -1,0 +1,127 @@
+<?php
+
+namespace {{namespace}};
+
+use Carbon\Carbon;
+use Kitano\Aktiv8me\ActivatesUsers;
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * {{namespace}}\RegistrationToken
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \{{namespace}}\User $user
+ * @method static \Illuminate\Database\Query\Builder|\{{namespace}}\RegistrationToken whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\{{namespace}}\RegistrationToken whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\{{namespace}}\RegistrationToken whereToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\{{namespace}}\RegistrationToken whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\{{namespace}}\RegistrationToken whereUserId($value)
+ * @mixin \Eloquent
+ */
+class RegistrationToken extends Model
+{
+    use ActivatesUsers;
+
+    /** @var array */
+    protected $fillable = ['user_id', 'token'];
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'token';
+    }
+
+    /**
+     * Relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(\{{namespace}}\User::class);
+    }
+
+    /**
+     * Creates a token for a given user
+     *
+     * @param \{{namespace}}\User $user
+     *
+     * @return static|\{{namespace}}\User
+     */
+    public static function createFor(User $user)
+    {
+        return static::create([
+            'user_id' => $user->id,
+            'token' => ActivatesUsers::generateToken(),
+        ]);
+    }
+
+    /**
+     * Deletes all tokens for a given user
+     *
+     * @param int $uid  User ID
+     *
+     * @return bool|null
+     * @throws \Exception
+     */
+    public static function deleteCode($uid)
+    {
+        return static::where('user_id', $uid)->delete();
+    }
+
+    /**
+     * Finds tokens for a given user
+     *
+     * @param $userId
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public static function findCodes($userId)
+    {
+        return static::where('user_id', $userId)->get();
+    }
+
+    /**
+     * Finds a specific Token
+     *
+     * @param $code
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null|static
+     */
+    public static function findToken($code)
+    {
+        return static::where('token', $code)->first();
+    }
+
+    /**
+     * @param $email
+     *
+     * @return \{{namespace}}\RegistrationToken|\App\User
+     */
+    public static function makeToken($email)
+    {
+        return static::createFor(\{{namespace}}\User::findByEmail($email));
+    }
+
+    /**
+     * Updates a token for a given user
+     *
+     * @param \{{namespace}}\User $user
+     *
+     * @return \{{namespace}}\RegistrationToken|null|static
+     */
+    public static function updateFor(User $user)
+    {
+        $user_token = static::where('user_id', $user->id)->first();
+        $user_token->token = ActivatesUsers::generateToken();
+        $user_token->save();
+
+        return $user_token;
+    }
+}

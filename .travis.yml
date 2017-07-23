@@ -1,0 +1,21 @@
+language: php
+php:
+  - 5.6
+before_install:
+  - composer self-update
+  - composer create-project laravel/laravel
+  - cd ./laravel
+  - composer config repositories.samkitano vcs https://github.com/samkitano/aktiv8me.git
+  - composer require samkitano/aktiv8me dev-master
+  - composer update
+  - cp ./vendor/samkitano/aktiv8me/tests/config/.env ./
+  - rm ./config/app.php
+  - rm ./config/database.php
+  - cp ./vendor/samkitano/aktiv8me/tests/config/app.php ./config
+  - cp ./vendor/samkitano/aktiv8me/tests/config/database.php ./config
+  - cp ./vendor/samkitano/aktiv8me/tests/config/tests.sqlite ./database
+  - php artisan make:aktiv8me
+  - php artisan migrate
+  - cd ./vendor/samkitano/aktiv8me
+
+script: "phpunit"

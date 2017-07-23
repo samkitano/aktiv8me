@@ -1,0 +1,53 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Aktiv8me Translation File
+|--------------------------------------------------------------------------
+|
+| Aktiv8me allows your app to seamlessly confirm your newly registered users
+| It works by taking advantage of handy Laravel's default  Authentication
+| System, and adding the confirmation funcionality with minimum impact
+|
+| Here you can change output texts from flashed messages to
+| notification emails. You can also copy/paste this file
+| to provide translations for other languages.
+|
+| https://laravel.com/docs/5.4/localization
+|
+*/
+
+return [
+    'confirm_email' => [
+        'action' => 'Confirm Registration',
+        'line1'  => 'Thank you for registering, :username! '.
+                    'Please click the button below in order to activate your account.',
+        'line2'  => 'If you did not register at :appname, no further action is required.',
+    ],
+
+    'forms' => [
+        'login' => [
+
+        ],
+
+        'register' => [
+
+        ],
+    ],
+
+    'status' => [
+        'account_confirmed'        => 'Your account has been activated. Thanks!',
+        'account_confirmed_and_in' => 'Your account has been activated, and you are now logged in. Thanks!',
+        'account_confirmation'     => 'Account Confirmation',
+        'invalid_token'            => 'Invalid Token',
+        'login'                    => 'Login',
+        'logged_in'                => 'You are now logged in. Welcome back, :username!',
+        'registration'             => 'Registration',
+        'user_registered'          => 'Thanks for registering, :username ! Please check out your'.
+                                      ' inbox (:email) and follow instructions to activate your account.',
+    ],
+
+    'welcome_email' => [
+
+    ],
+];
