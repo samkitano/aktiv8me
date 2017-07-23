@@ -4,11 +4,11 @@ namespace Tests\Unit;
 
 use Carbon\Carbon;
 use Tests\TestCase;
-use Kitano\Aktiv8me\Aktiv8me;
+use Kitano\Aktiv8me\ActivatesUsers;
 
 class Aktiv8meTraitTest extends TestCase
 {
-    use Aktiv8me;
+    use ActivatesUsers;
 
     public function testCheckExpiredTokens()
     {
@@ -58,9 +58,9 @@ class Aktiv8meTraitTest extends TestCase
 
     public function testCanGenerateAlphaNumericTokens()
     {
-        $this->assertInternalType('string', Aktiv8me::generateToken());
-        $this->assertTrue(ctype_alnum(Aktiv8me::generateToken()));
-        $this->assertEquals(strlen(Aktiv8me::generateToken()), 64);
+        $this->assertInternalType('string', ActivatesUsers::generateToken());
+        $this->assertTrue(ctype_alnum(ActivatesUsers::generateToken()));
+        $this->assertEquals(strlen(ActivatesUsers::generateToken()), 64);
     }
 
     public function testCanSendToken()

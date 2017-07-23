@@ -4,13 +4,13 @@ namespace Tests\Feature;
 
 use Carbon\Carbon;
 use Tests\TestCase;
-use Kitano\Aktiv8me\Aktiv8me;
+use Kitano\Aktiv8me\ActivatesUsers;
 use MailThief\Testing\InteractsWithMail;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class EmailsTest extends TestCase
 {
-    use Aktiv8me, DatabaseMigrations, InteractsWithMail;
+    use ActivatesUsers, DatabaseMigrations, InteractsWithMail;
 
     protected $user;
 
