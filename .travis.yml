@@ -16,7 +16,7 @@ before_install:
   - cp ./vendor/samkitano/aktiv8me/tests/config/tests.sqlite ./database
   - php artisan make:aktiv8me
   - php artisan migrate
-  - composer update
+  - composer dump-autoload -o
   - cd ./vendor/samkitano/aktiv8me
 
 script: "phpunit"
