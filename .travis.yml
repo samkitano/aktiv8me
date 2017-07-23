@@ -17,4 +17,4 @@ before_install:
   - php artisan make:aktiv8me
   - php artisan migrate
 
-script: "vendor\bin\phpunit"
+script: "vendor/bin/phpunit"
