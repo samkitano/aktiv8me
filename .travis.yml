@@ -14,9 +14,10 @@ before_install:
   - cp ./vendor/samkitano/aktiv8me/tests/config/app.php ./config
   - cp ./vendor/samkitano/aktiv8me/tests/config/database.php ./config
   - cp ./vendor/samkitano/aktiv8me/tests/config/tests.sqlite ./database
+  - cp ./vendor/samkitano/aktiv8me/tests/Feature/DatabaseTest.php ./tests/Feature
+  - cp ./vendor/samkitano/aktiv8me/tests/Feature/EmailTest.php ./tests/Feature
+  - cp ./vendor/samkitano/aktiv8me/tests/Unit/Aktiv8meTraitTest.php ./tests/Unit
   - php artisan make:aktiv8me
   - php artisan migrate
-  - cd ./vendor/samkitano/aktiv8me
-  - composer update
   - composer dump-autoload -o
 script: "vendor/bin/phpunit"
