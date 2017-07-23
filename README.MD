@@ -101,4 +101,5 @@ Is always welcome, in all forms: Suggestions, Bug reports, Security issues, Pull
 Translations, Documentation, Tests...
 
 ### License
+
 Open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
