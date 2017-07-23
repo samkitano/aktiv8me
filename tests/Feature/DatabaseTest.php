@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\User;
-use App\RegistrationToken;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -24,10 +22,10 @@ class DatabaseTest extends TestCase
     {
         parent::setUp();
 
-        $users = factory(User::class, 3)
+        $users = factory(\App\User::class, 3)
             ->create()
             ->each(function ($u) {
-                $u->codes()->save(factory(RegistrationToken::class)->make());
+                $u->codes()->save(factory(\App\RegistrationToken::class)->make());
             });
 
         $this->users = $users;
@@ -35,8 +33,8 @@ class DatabaseTest extends TestCase
 
     public function testDatabase()
     {
-        $user = factory(User::class)->create()->toArray();
-        $token = factory(RegistrationToken::class)->create()->toArray();
+        $user = factory(\App\User::class)->create()->toArray();
+        $token = factory(\App\RegistrationToken::class)->create()->toArray();
 
         $this->assertDatabaseHas(
             'users',
@@ -57,7 +55,7 @@ class DatabaseTest extends TestCase
 
         $this->assertInstanceof(
             'Illuminate\Database\Eloquent\Relations\BelongsTo',
-            RegistrationToken::where('user_id', $this->users->first()->id)->first()->user()
+            \App\RegistrationToken::where('user_id', $this->users->first()->id)->first()->user()
         );
     }
 
@@ -65,7 +63,7 @@ class DatabaseTest extends TestCase
     {
         $this->assertEquals(
             $this->users->first()->toArray(),
-            User::findByEmail($this->users->first()->email)->toArray()
+            \App\User::findByEmail($this->users->first()->email)->toArray()
         );
     }
 
@@ -73,7 +71,7 @@ class DatabaseTest extends TestCase
     {
         $this->assertEquals(
             $this->users->first()->codes,
-            User::getTokens($this->users->first()->email)
+            \App\User::getTokens($this->users->first()->email)
         );
     }
 
@@ -86,26 +84,26 @@ class DatabaseTest extends TestCase
 
     public function testRegistrationTokenDeleteCodeActivatesUser()
     {
-        RegistrationToken::deleteCode(User::first()->id);
+        \App\RegistrationToken::deleteCode(\App\User::first()->id);
 
-        $this->assertTrue(RegistrationToken::count() === 2);
-        $this->assertTrue(User::first()->verified);
+        $this->assertTrue(\App\RegistrationToken::count() === 2);
+        $this->assertTrue(\App\User::first()->verified);
     }
 
     public function testRegistrationTokenCreateFor()
     {
-        $user = factory(User::class)->create();
+        $user = factory(\App\User::class)->create();
 
-        RegistrationToken::createFor($user);
+        \App\RegistrationToken::createFor($user);
 
-        $this->assertFalse(User::find($user->id)->verified);
-        $this->assertTrue(RegistrationToken::count() === 4);
+        $this->assertFalse(\App\User::find($user->id)->verified);
+        $this->assertTrue(\App\RegistrationToken::count() === 4);
     }
 
     public function testRegistrationTokenFindCodes()
     {
         $this->assertEquals(
-            RegistrationToken::findCodes($this->users->first()->id)->first(),
+            \App\RegistrationToken::findCodes($this->users->first()->id)->first(),
             $this->users->first()->codes->first()
         );
     }
@@ -113,23 +111,23 @@ class DatabaseTest extends TestCase
     public function testRegistrationTokenFindToken()
     {
         $this->assertEquals(
-            RegistrationToken::findToken($this->users->first()->codes->first()->token),
+            \App\RegistrationToken::findToken($this->users->first()->codes->first()->token),
             $this->users->first()->codes->first()
         );
     }
 
     public function testRegistrationTokenMakeToken()
     {
-        RegistrationToken::makeToken($this->users->first()->email);
+        \App\RegistrationToken::makeToken($this->users->first()->email);
 
-        $this->assertTrue(user::find($this->users->first()->id)->codes->count() === 2);
+        $this->assertTrue(\App\user::find($this->users->first()->id)->codes->count() === 2);
     }
 
     public function testRegistrationTokenUpdateFor()
     {
         $user = $this->users->first();
         $old_token = $user->codes->first()->token;
-        $updated_token = RegistrationToken::updateFor($user);
+        $updated_token = \App\RegistrationToken::updateFor($user);
 
         $this->assertNotEquals($updated_token->token, $old_token);
         $this->assertInternalType('string', $updated_token->token);
@@ -138,7 +136,7 @@ class DatabaseTest extends TestCase
 
     public function testTokenInternals()
     {
-        foreach (User::all() as $user) {
+        foreach (\App\User::all() as $user) {
             foreach ($user->codes as $token) {
                 $this->assertInternalType('string', $token->token);
                 $this->assertTrue(ctype_alnum($token->token));

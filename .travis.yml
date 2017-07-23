@@ -8,7 +8,6 @@ before_install:
   - composer require tightenco/mailthief --dev
   - composer config repositories.samkitano vcs https://github.com/samkitano/aktiv8me.git
   - composer require samkitano/aktiv8me dev-master
-  - composer update
   - cp ./vendor/samkitano/aktiv8me/tests/config/.env ./
   - rm ./config/app.php
   - rm ./config/database.php
@@ -17,6 +16,7 @@ before_install:
   - cp ./vendor/samkitano/aktiv8me/tests/config/tests.sqlite ./database
   - php artisan make:aktiv8me
   - php artisan migrate
-  - cd ./vendor/samkitano/aktiv8me
+   - composer update
+ - cd ./vendor/samkitano/aktiv8me
 
 script: "phpunit"
