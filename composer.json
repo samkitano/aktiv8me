@@ -26,6 +26,7 @@
     "phpunit/phpunit": "^5.7",
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
-    "tightenco/mailthief": "^0.3.6"
+    "tightenco/mailthief": "^0.3.6",
+    "orchestra/testbench": "~3.0"
   }
 }
