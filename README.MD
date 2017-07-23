@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/samkitano/aktiv8me.svg?branch=master)](https://travis-ci.org/samkitano/aktiv8me)
 # Aktiv8me
 
 ## Authentication System for [Laravel](https://laravel.com) 5.4.* with email user activation
