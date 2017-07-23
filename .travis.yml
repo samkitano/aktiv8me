@@ -11,11 +11,11 @@ before_install:
   - cp ./vendor/samkitano/aktiv8me/tests/config/.env ./
   - rm ./config/app.php
   - rm ./config/database.php
-  - rm ./database/factories/ModelFactoy.php
+  - rm ./database/factories/ModelFactory.php
   - cp ./vendor/samkitano/aktiv8me/tests/config/app.php ./config
   - cp ./vendor/samkitano/aktiv8me/tests/config/database.php ./config
   - cp ./vendor/samkitano/aktiv8me/tests/config/tests.sqlite ./database
-  - cp ./vendor/samkitano/aktiv8me/tests/config/ModelFactoy.php ./database/factories
+  - cp ./vendor/samkitano/aktiv8me/tests/config/ModelFactory.php ./database/factories
   - cp ./vendor/samkitano/aktiv8me/tests/Feature/DatabaseTest.php ./tests/Feature
   - cp ./vendor/samkitano/aktiv8me/tests/Feature/EmailsTest.php ./tests/Feature
   - cp ./vendor/samkitano/aktiv8me/tests/Unit/Aktiv8meTraitTest.php ./tests/Unit
