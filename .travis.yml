@@ -18,4 +18,4 @@ before_install:
   - php artisan migrate
   - cd ./vendor/samkitano/aktiv8me
   - composer update
-script: "phpunit"
+script: "vendor/bin/phpunit"
