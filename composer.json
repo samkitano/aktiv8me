@@ -15,11 +15,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Kitano\\Aktiv8me\\": "src",
-      "classmap": [
-        "tests"
-      ]
-    }
+      "Kitano\\Aktiv8me\\": "src"
+    },
+    "classmap": [
+      "tests"
+    ]
   },
   "require-dev": {
     "laravel/framework": "5.4.*",
