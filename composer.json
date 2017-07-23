@@ -13,6 +13,13 @@
   "require": {
     "php": ">=5.6.4"
   },
+  "require-dev": {
+    "laravel/framework": "5.4.*",
+    "phpunit/phpunit": "^5.7",
+    "fzaninotto/faker": "~1.4",
+    "mockery/mockery": "0.9.*",
+    "tightenco/mailthief": "^0.3.6"
+  },
   "autoload": {
     "psr-4": {
       "Kitano\\Aktiv8me\\": "src"
@@ -20,13 +27,5 @@
     "classmap": [
       "tests"
     ]
-  },
-  "require-dev": {
-    "laravel/framework": "5.4.*",
-    "phpunit/phpunit": "^5.7",
-    "fzaninotto/faker": "~1.4",
-    "mockery/mockery": "0.9.*",
-    "tightenco/mailthief": "^0.3.6",
-    "orchestra/testbench": "~3.0"
   }
 }

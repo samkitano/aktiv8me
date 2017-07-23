@@ -2,10 +2,9 @@
 
 namespace Tests;
 
-abstract class TestCase extends Orchestra\Testbench\TestCase
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+
+abstract class TestCase extends BaseTestCase
 {
-    protected function getPackageProviders($app)
-    {
-        return ['Kitano\Aktiv8me\Aktiv8meServiceProvider'];
-    }
+    use CreatesApplication;
 }
