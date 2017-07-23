@@ -44,6 +44,8 @@ class EmailsTest extends TestCase
 
     public function testSendWelcomeEmail()
     {
+        config(['aktiv8me.welcome_email' => true]);
+        
         $this->sendWelcomeEmail($this->user);
 
         $this->seeMessageFor($this->user->email);
