@@ -15,7 +15,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Kitano\\Aktiv8me\\": "src/"
+      "Kitano\\Aktiv8me\\": "src",
+      "classmap": [
+        "tests"
+      ]
     }
   },
   "require-dev": {
