@@ -15,10 +15,10 @@ class Aktiv8meServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-        $this->loadTranslationsFrom(__DIR__.'/lang/', 'aktiv8me');
+        $this->loadTranslationsFrom(__DIR__.'/lang', 'aktiv8me');
 
         $this->publishes([
-            __DIR__.'/lang/en/aktiv8me.php' => resource_path('lang/en/aktiv8me.php'),
+            __DIR__.'/lang' => resource_path('lang'),
             __DIR__.'/config/aktiv8me.php' => config_path('aktiv8me.php'),
         ]);
 
