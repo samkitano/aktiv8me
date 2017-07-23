@@ -35,7 +35,7 @@ class DatabaseTest extends TestCase
     {
         $user = factory(\App\User::class)->create()->toArray();
         $token = factory(\App\RegistrationToken::class)->make();
-        $token->user_id = $user->id;
+        $token->user_id = $user['id'];
         $token->save();
 
         $this->assertDatabaseHas(
@@ -44,7 +44,7 @@ class DatabaseTest extends TestCase
         );
         $this->assertDatabaseHas(
             'registration_tokens',
-            $token
+            $token->toArray()
         );
     }
 
