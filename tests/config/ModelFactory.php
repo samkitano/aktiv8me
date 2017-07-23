@@ -16,7 +16,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\RegistrationToken::class, function (Faker\Generator $faker) {
     return [
-        'token' => $faker->name,
+        'token' => hash_hmac('sha256', str_random(64), config('app.key')),
         'created_at' => Carbon::now(),
         'updated_at' => Carbon::now(),
     ];
