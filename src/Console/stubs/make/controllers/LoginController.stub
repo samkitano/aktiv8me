@@ -24,6 +24,37 @@ class LoginController extends Controller
     }
 
     /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if ($this->attemptLogin($request)) {
+            $user = Auth::user();
+
+            if ($user->active) {
+                return response()->json(['user' => $user]);
+            }
+
+            $this->guard()->logout();
+            $request->session()->invalidate();
+        }
+
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    /**
      * The user has been authenticated.
      *
      * @param  \Illuminate\Http\Request  $request
