@@ -1,10 +1,10 @@
 [![Build Status](https://travis-ci.org/samkitano/aktiv8me.svg?branch=master)](https://travis-ci.org/samkitano/aktiv8me)
 # Aktiv8me
 
-## Authentication System for [Laravel](https://laravel.com) 5.4.* with email user activation
+## Authentication System for [Laravel](https://laravel.com) 5.4.* and 5.5.* with email user activation
 
 This package adds an email verification, a.k.a. account activation feature to the built-in
-[Laravel Authentication System](https://laravel.com/docs/5.4/authentication#authentication-quickstart).
+[Laravel Authentication System](https://laravel.com/docs/5.5/authentication#authentication-quickstart).
 Upon registration, users will automatically recieve an email containing an activation link, which will allow to
 activate their registrations.
 
