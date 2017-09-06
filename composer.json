@@ -34,5 +34,13 @@
         "Kitano\\Aktiv8me\\Aktiv8meServiceProvider"
       ]
     }
+  },
+  "config": {
+    "fxp-asset": {
+      "vcs-driver-options": {
+        "github-no-api": true
+      },
+      "pattern-skip-version": "(-build|-patch)"
+    }
   }
 }
