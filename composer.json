@@ -1,6 +1,6 @@
 {
   "name": "samkitano/aktiv8me",
-  "description": "User Activation by email for Laravel 5.4",
+  "description": "User Activation by email for Laravel 5.5",
   "type": "project",
   "license": "MIT",
   "authors": [
@@ -14,7 +14,7 @@
     "php": ">=7"
   },
   "require-dev": {
-    "laravel/framework": "5.4.*",
+    "laravel/framework": "5.5.*",
     "phpunit/phpunit": "^5.7",
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
