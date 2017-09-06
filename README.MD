@@ -8,6 +8,8 @@ This package adds an email verification, a.k.a. account activation feature to th
 Upon registration, users will automatically recieve an email containing an activation link, which will allow to
 activate their registrations.
 
+### NOTE: email tests (Travis) are temporarily disabled due to some Mailthief issues.
+
 ### Requirements
 **v1**
 
