@@ -127,7 +127,6 @@ class MakeEmailVerification extends Command
         }
     }
 
-
     /**
      * Add an entry to the log file
      *
