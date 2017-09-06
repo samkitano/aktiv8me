@@ -6,7 +6,7 @@ before_install:
   - composer self-update
   - composer create-project laravel/laravel
   - cd ./laravel
-  - composer require tightenco/mailthief --dev
+#  - composer require tightenco/mailthief --dev
   - composer config repositories.samkitano vcs https://github.com/samkitano/aktiv8me.git
   - composer require samkitano/aktiv8me:2.*
   - cp ./vendor/samkitano/aktiv8me/tests/config/.env ./
@@ -18,7 +18,7 @@ before_install:
   - cp ./vendor/samkitano/aktiv8me/tests/config/tests.sqlite ./database
   - cp ./vendor/samkitano/aktiv8me/tests/config/ModelFactory.php ./database/factories
   - cp ./vendor/samkitano/aktiv8me/tests/Feature/DatabaseTest.php ./tests/Feature
-  - cp ./vendor/samkitano/aktiv8me/tests/Feature/EmailsTest.php ./tests/Feature
+#  - cp ./vendor/samkitano/aktiv8me/tests/Feature/EmailsTest.php ./tests/Feature
   - cp ./vendor/samkitano/aktiv8me/tests/Unit/Aktiv8meTraitTest.php ./tests/Unit
   - php artisan make:aktiv8me
   - php artisan migrate
