@@ -8,7 +8,7 @@ before_install:
   - cd ./laravel
   - composer require tightenco/mailthief --dev
   - composer config repositories.samkitano vcs https://github.com/samkitano/aktiv8me.git
-  - composer require samkitano/aktiv8me dev-master
+  - composer require samkitano/aktiv8me:2*
   - cp ./vendor/samkitano/aktiv8me/tests/config/.env ./
   - rm ./config/app.php
   - rm ./config/database.php
