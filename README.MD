@@ -9,18 +9,43 @@ Upon registration, users will automatically recieve an email containing an activ
 activate their registrations.
 
 ### Requirements
-php >=5.6.4
+**v1**
+
+PHP >=5.6.4
 
 Laravel 5.4.*
+
+**v2**
+
+PHP >=7
+
+Laravel 5.5.*
 
 ### Before Installation
 A clean, freshly installed Laravel is not required, but recommended.
 
-### Installation
+### Installation (v2 - Laravel 5.5.*)
 
 1 - Require with composer
 ```bash
     composer require samkitano/aktiv8me
+```
+2 - Run aktiv8me
+```bash
+    php artisan make:aktiv8me
+```
+
+3 - Run migrations
+```bash
+    php artisan migrate
+```
+Done!
+
+### Installation (v1 - Laravel 5.4.*)
+
+1 - Require with composer
+```bash
+    composer require samkitano/aktiv8me:1.*
 ```
 2 - Add Service Provider to providers array in ```config/app.php```
 

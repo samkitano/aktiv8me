@@ -27,5 +27,12 @@
     "classmap": [
       "tests"
     ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Kitano\\Aktiv8me\\Aktiv8meServiceProvider"
+      ]
+    }
   }
 }
