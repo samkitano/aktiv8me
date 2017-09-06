@@ -2,26 +2,26 @@
 
 namespace Tests\Feature;
 
-use Carbon\Carbon;
-use Tests\TestCase;
-use Kitano\Aktiv8me\ActivatesUsers;
-use MailThief\Testing\InteractsWithMail;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-
-class EmailsTest extends TestCase
-{
-    use ActivatesUsers, DatabaseMigrations, InteractsWithMail;
-
-    protected $user;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $user = factory(\App\User::class)->create();
-
-        $this->user = $user;
-    }
+//use Carbon\Carbon;
+//use Tests\TestCase;
+//use Kitano\Aktiv8me\ActivatesUsers;
+//use MailThief\Testing\InteractsWithMail;
+//use Illuminate\Foundation\Testing\DatabaseMigrations;
+//
+//class EmailsTest extends TestCase
+//{
+//    use ActivatesUsers, DatabaseMigrations, InteractsWithMail;
+//
+//    protected $user;
+//
+//    public function setUp()
+//    {
+//        parent::setUp();
+//
+//        $user = factory(\App\User::class)->create();
+//
+//        $this->user = $user;
+//    }
 
 //    public function testSendActivationEmail()
 //    {
@@ -64,4 +64,4 @@ class EmailsTest extends TestCase
 //        $this->assertTrue($this->lastMessage()->contains($updated_token->token));
 //        $this->assertFalse($this->lastMessage()->contains($token->token));
 //    }
-}
+//}
