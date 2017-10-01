@@ -89,11 +89,11 @@ NOTE: Translations are provided ONLY for this package's resources. Validation er
 If not a fresh Laravel installation, the generated routes may have to be re-arranged in the *routes/web.php* file.
 
 ### Usage
-| Command                   | Action                 | Description                                                   |
-| ------------------------- | ---------------------- | ------------------------------------------------------------- |
-| php artisan make:auth     | Default installation   | Normal installation/reinstall. Files will be backed up.       |
-| php artisan make:auth --s | Skip Backup files      | Do not backup files during installation/reinstall.            |
-| php artisan make:auth --r | Remove Backed up files | Not an uninstall. Removes ALL backed up files.                |
+| Command                       | Action                 | Description                                                   |
+| ----------------------------- | ---------------------- | ------------------------------------------------------------- |
+| php artisan make:aktiv8me     | Default installation   | Normal installation/reinstall. Files will be backed up.       |
+| php artisan make:aktiv8me --s | Skip Backup files      | Do not backup files during installation/reinstall.            |
+| php artisan make:aktiv8me --r | Remove Backed up files | Not an uninstall. Removes ALL backed up files.                |
 
 ### Configuration
 The configuration file *config/Aktiv8me.php* contains sensible defaults, and sets up a few easy to config options:
@@ -118,7 +118,7 @@ their own project workflow.
 Unless otherwise specified (artisan make:aktiv8me --s), all of the original Laravel's default
 files will be renamed with an '.original' extension, and kept on their original directories, for convenience.
 
-The package keeps a list of all backed up files. Running *php artisan make:auth --r* will remove **ALL** of them.
+The package keeps a list of all backed up files. Running *php artisan make:aktiv8me --r* will remove **ALL** of them.
 
 Flashed messages and JSON responses are set by the package, and they contain adequate information for most
 applications.
