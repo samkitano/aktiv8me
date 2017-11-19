@@ -775,6 +775,8 @@ class MakeEmailVerification extends Command
         $back = [
             'welcome' => resource_path('views/welcome.blade.php'),
             'app' => AK_FILE.'views/layouts/app.blade.php',
+            'auth_login' => resource_path('views/auth/login.blade.php'),
+            'auth_register' => resource_path('views/auth/register.blade.php'),
             'web' => base_path('routes/web.php'),
             'user' => app_path('User.php'),
             'login' => app_path('Http/Controllers/Auth/LoginController.php'),
@@ -796,6 +798,8 @@ class MakeEmailVerification extends Command
                 // Views
                 $back['welcome'] => $back['welcome'].AK_EXT,
                 $back['app'] => resource_path('views/layouts/app.blade.php'.AK_EXT),
+                $back['auth_login'] => resource_path('views/auth/login.blade.php'.AK_EXT),
+                $back['auth_register'] => resource_path('views/auth/register.blade.php'.AK_EXT),
                 // Routes
                 $back['web'] => $back['web'].AK_EXT,
                 // Models
